@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|svg|ttf|eot|woff|woff2)$/,
         exclude: /node_modules/,
-        loader: 'file?limit=8192&name=images/[hash].[ext]',
+        loader: 'url-loader?mimetype=image',
       },
     ],
   },

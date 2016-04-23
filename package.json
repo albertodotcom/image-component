@@ -20,9 +20,9 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
-    "file-loader": "^0.8.5",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.0.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.0"
   }
 }
