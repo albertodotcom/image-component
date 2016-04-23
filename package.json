@@ -1,0 +1,15 @@
+{
+  "name": "image-component",
+  "version": "1.0.0",
+  "description": "This is a simple image component",
+  "main": "ImageComponent.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alberto Forni",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.0.1",
+    "react-styleable": "^2.2.3"
+  }
+}
