@@ -160,10 +160,10 @@ module.exports =
 
 	ImageComponent.propTypes = {
 	  isEditing: _react.PropTypes.bool,
-	  content: _react.PropTypes.string.isRequired,
+	  content: _react.PropTypes.string,
 	  style: _react.PropTypes.object,
 	  addComponentContent: _react.PropTypes.func,
-	  onClick: _react.PropTypes.onClick
+	  onClick: _react.PropTypes.func
 	};
 	ImageComponent.defaultProps = {
 	  isEditing: false,
