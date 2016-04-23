@@ -1,7 +1,4 @@
 import React, { PropTypes } from 'react';
-import styleable from 'react-styleable';
-
-import css from './ImageComponent.scss';
 
 function ImageRender({ className, content }) {
   return (
@@ -22,6 +19,7 @@ function ImageModify({ onChange }) {
 class ImageComponent extends React.Component {
   static propTypes = {
     isEditing: PropTypes.bool,
+    content: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
@@ -44,7 +42,6 @@ class ImageComponent extends React.Component {
   }
 
   handleClick = (e) => {
-    debugger;
     e.stopPropagation();
     if (this.props.isEditing === false) {
       this.props.onClick();
@@ -52,15 +49,14 @@ class ImageComponent extends React.Component {
   }
 
   render() {
-    let { css, isEditing, content } = this.props;
+    let { isEditing, content } = this.props;
 
     const imageRenderProps = {
-      className: css.img,
-      content: content ? content : require('../../../public/imgPlaceholder.png'),
+      content: content ? content : require('../static/imgPlaceholder.png'),
     };
 
     return (
-      <div className={css.root} onClick={this.handleClick}>
+      <div onClick={this.handleClick}>
         {
           isEditing ?
           <ImageModify onChange={this.handleChange} /> :
@@ -71,4 +67,4 @@ class ImageComponent extends React.Component {
   }
 }
 
-export default styleable(css)(ImageComponent);
+export default ImageComponent;
