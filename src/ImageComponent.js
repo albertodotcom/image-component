@@ -36,10 +36,10 @@ const style = {
 class ImageComponent extends React.Component {
   static propTypes = {
     isEditing: PropTypes.bool,
-    content: PropTypes.string.isRequired,
+    content: PropTypes.string,
     style: PropTypes.object,
     addComponentContent: PropTypes.func,
-    onClick: PropTypes.onClick,
+    onClick: PropTypes.func,
   }
 
   static defaultProps = {
