@@ -2,7 +2,7 @@ module.exports = {
   env: ['node'],
   entry: './src/ImageComponent.js',
   output: {
-    path: './dist/',
+    path: './build/',
     filename: 'index.js',
   },
   module: {
