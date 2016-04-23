@@ -44,7 +44,6 @@ class ImageComponent extends React.Component {
 
   static defaultProps = {
     isEditing: false,
-    content: require('../static/imgPlaceholder.png'),
     style,
   }
 
@@ -72,6 +71,10 @@ class ImageComponent extends React.Component {
 
   render() {
     let { isEditing, content, style } = this.props;
+
+    if (!content) {
+      content = require('../static/imgPlaceholder.png');
+    }
 
     const imageRenderProps = {
       style: style.img,

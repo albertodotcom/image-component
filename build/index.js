@@ -142,6 +142,10 @@ module.exports =
 	      var style = _props.style;
 
 
+	      if (!content) {
+	        content = __webpack_require__(32);
+	      }
+
 	      var imageRenderProps = {
 	        style: style.img,
 	        content: content
@@ -167,7 +171,6 @@ module.exports =
 	};
 	ImageComponent.defaultProps = {
 	  isEditing: false,
-	  content: __webpack_require__(32),
 	  style: style
 	};
 	exports.default = ImageComponent;
