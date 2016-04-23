@@ -66,21 +66,37 @@ module.exports =
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	function ImageRender(_ref) {
-	  var className = _ref.className;
+	  var style = _ref.style;
 	  var content = _ref.content;
 
 	  return _react2.default.createElement('img', {
-	    className: className,
+	    style: style,
 	    src: content,
 	    alt: 'select an image'
 	  });
 	}
+	ImageRender.propTypes = {
+	  content: _react.PropTypes.string.isRequired,
+	  style: _react.PropTypes.object.isRequired
+	};
 
 	function ImageModify(_ref2) {
 	  var onChange = _ref2.onChange;
 
 	  return _react2.default.createElement('input', { type: 'file', accept: 'image/*', onChange: onChange });
 	}
+	ImageModify.propTypes = {
+	  onChange: _react.PropTypes.func
+	};
+
+	var style = {
+	  root: {
+	    textAlign: 'center'
+	  },
+	  img: {
+	    maxHeight: '20rem'
+	  }
+	};
 
 	var ImageComponent = function (_React$Component) {
 	  _inherits(ImageComponent, _React$Component);
@@ -123,15 +139,17 @@ module.exports =
 	      var _props = this.props;
 	      var isEditing = _props.isEditing;
 	      var content = _props.content;
+	      var style = _props.style;
 
 
 	      var imageRenderProps = {
-	        content: content ? content : __webpack_require__(32)
+	        style: style.img,
+	        content: content
 	      };
 
 	      return _react2.default.createElement(
 	        'div',
-	        { onClick: this.handleClick },
+	        { onClick: this.handleClick, style: style.root },
 	        isEditing ? _react2.default.createElement(ImageModify, { onChange: this.handleChange }) : _react2.default.createElement(ImageRender, imageRenderProps)
 	      );
 	    }
@@ -142,10 +160,15 @@ module.exports =
 
 	ImageComponent.propTypes = {
 	  isEditing: _react.PropTypes.bool,
-	  content: _react.PropTypes.string.isRequired
+	  content: _react.PropTypes.string.isRequired,
+	  style: _react.PropTypes.object,
+	  addComponentContent: _react.PropTypes.func,
+	  onClick: _react.PropTypes.onClick
 	};
 	ImageComponent.defaultProps = {
-	  isEditing: false
+	  isEditing: false,
+	  content: __webpack_require__(32),
+	  style: style
 	};
 	exports.default = ImageComponent;
 

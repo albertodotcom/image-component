@@ -1,29 +1,51 @@
 import React, { PropTypes } from 'react';
 
-function ImageRender({ className, content }) {
+function ImageRender({ style, content }) {
   return (
     <img
-      className={className}
+      style={style}
       src={content}
       alt='select an image'
       />
   );
 }
+ImageRender.propTypes = {
+  content: PropTypes.string.isRequired,
+  style: PropTypes.object.isRequired,
+};
 
 function ImageModify({ onChange }) {
   return (
     <input type='file' accept='image/*' onChange={onChange} />
   );
 }
+ImageModify.propTypes = {
+  onChange: PropTypes.func,
+};
+
+
+const style = {
+  root: {
+    textAlign: 'center',
+  },
+  img: {
+    maxHeight: '20rem',
+  },
+};
 
 class ImageComponent extends React.Component {
   static propTypes = {
     isEditing: PropTypes.bool,
     content: PropTypes.string.isRequired,
+    style: PropTypes.object,
+    addComponentContent: PropTypes.func,
+    onClick: PropTypes.onClick,
   }
 
   static defaultProps = {
     isEditing: false,
+    content: require('../static/imgPlaceholder.png'),
+    style,
   }
 
   handleChange = (evt) => {
@@ -49,14 +71,15 @@ class ImageComponent extends React.Component {
   }
 
   render() {
-    let { isEditing, content } = this.props;
+    let { isEditing, content, style } = this.props;
 
     const imageRenderProps = {
-      content: content ? content : require('../static/imgPlaceholder.png'),
+      style: style.img,
+      content,
     };
 
     return (
-      <div onClick={this.handleClick}>
+      <div onClick={this.handleClick} style={style.root}>
         {
           isEditing ?
           <ImageModify onChange={this.handleChange} /> :
