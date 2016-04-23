@@ -4,6 +4,7 @@ module.exports = {
   output: {
     path: './build/',
     filename: 'index.js',
+    libraryTarget: 'commonjs2',
   },
   module: {
     loaders: [
